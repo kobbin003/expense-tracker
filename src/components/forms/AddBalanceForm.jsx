@@ -24,7 +24,7 @@ const AddBalanceForm = () => {
 	};
 
 	return (
-		<form>
+		<form onSubmit={handleAddBalance}>
 			<input
 				type="number"
 				name="income"
@@ -33,8 +33,10 @@ const AddBalanceForm = () => {
 				placeholder="Income Amount"
 				onChange={handleOnChange}
 			/>
-			<button onClick={handleAddBalance}>Add Balance</button>
-			<button onClick={handleCancel}>Cancel</button>
+			<button type="submit">Add Balance</button>
+			<button type="button" onClick={handleCancel}>
+				Cancel
+			</button>
 		</form>
 	);
 };

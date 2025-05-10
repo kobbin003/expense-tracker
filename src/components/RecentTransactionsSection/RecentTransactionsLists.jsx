@@ -2,6 +2,7 @@ import React from "react";
 import { useExpenseContext } from "../../provider/ExpenseProvider";
 import {
 	Box,
+	Button,
 	Container,
 	List,
 	ListItem,
@@ -44,22 +45,52 @@ const RecentTransactionsLists = () => {
 								const Icon = categoryFound ? categoryFound.Icon : LuPuzzle;
 
 								return (
-									<ListItem key={id}>
-										<ListItemIcon>
-											<Icon />
-										</ListItemIcon>
-										<ListItemText primary={title} secondary={createdAt} />
-										<ListItemText primary={`\u20B9 ${price}`} />
-										<ListItemButton onClick={() => handleDeleteItem(id)}>
+									<ListItem
+										key={id}
+										sx={{
+											display: "flex",
+											// flexDirection: "row",
+											justifyContent: "space-between",
+										}}
+									>
+										<Box
+											sx={{
+												backgroundColor: "orangered",
+												display: "flex",
+												alignItems: "center",
+											}}
+										>
 											<ListItemIcon>
+												<Icon />
+											</ListItemIcon>
+											<ListItemText primary={title} secondary={createdAt} />
+										</Box>
+										<Box
+											sx={{
+												display: "flex",
+												backgroundColor: "violet",
+												alignItems: "center",
+												justifyContent: "flex-end",
+											}}
+										>
+											<ListItemText primary={`\u20B9 ${price}`} />
+											<Button
+												sx={{ width: "fit-content" }}
+												onClick={() => handleDeleteItem(id)}
+											>
+												{/* <ListItemIcon> */}
 												<LuCircleX />
-											</ListItemIcon>
-										</ListItemButton>
-										<ListItemButton onClick={() => handleEditItem(id)}>
-											<ListItemIcon>
+												{/* </ListItemIcon> */}
+											</Button>
+											<ListItemButton
+												sx={{ width: "fit-content" }}
+												onClick={() => handleEditItem(id)}
+											>
+												{/* <ListItemIcon> */}
 												<LuPencil />
-											</ListItemIcon>
-										</ListItemButton>
+												{/* </ListItemIcon> */}
+											</ListItemButton>
+										</Box>
 									</ListItem>
 								);
 							})}
@@ -71,7 +102,7 @@ const RecentTransactionsLists = () => {
 					</div> */}
 						<Container
 							sx={{
-								backgroundColor: "pink",
+								// backgroundColor: "pink",
 								display: "flex",
 								justifyContent: "center",
 							}}

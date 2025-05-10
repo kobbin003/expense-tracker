@@ -165,7 +165,9 @@ const ExpenseForm = ({ type }) => {
 					required
 				/>
 				<button type="submit">Add Expense</button>
-				<button onClick={handleCancel}>Cancel</button>
+				<button type="button" onClick={handleCancel}>
+					Cancel
+				</button>
 			</form>
 		</div>
 	);
