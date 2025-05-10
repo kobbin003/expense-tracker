@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useExpenseContext } from "../../provider/ExpenseProvider";
 
 const AddBalanceForm = () => {
-	const [income, setIncome] = useState(0);
+	const [income, setIncome] = useState("");
 
 	const { setModalInfo, setBalance } = useExpenseContext();
 
@@ -26,7 +26,7 @@ const AddBalanceForm = () => {
 	return (
 		<form>
 			<input
-				type="text"
+				type="number"
 				name="income"
 				id="income"
 				value={income}

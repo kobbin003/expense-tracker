@@ -1,6 +1,7 @@
 import React from "react";
 import { useExpenseContext } from "../../provider/ExpenseProvider";
 import {
+	Box,
 	Container,
 	List,
 	ListItem,
@@ -31,55 +32,57 @@ const RecentTransactionsLists = () => {
 	};
 	return (
 		<>
-			{expenses.length > 0 ? (
-				<>
-					<List>
-						{expenses.map(({ id, title, price, category, createdAt }) => {
-							const categoryFound = categories.find(
-								({ label }) => label === category
-							);
-							// if category not found in the list, then use a miscellaneous icon for it.
-							const Icon = categoryFound ? categoryFound.Icon : LuPuzzle;
+			<Box sx={{ backgroundColor: "var(--white)" }}>
+				{expenses.length > 0 ? (
+					<>
+						<List>
+							{expenses.map(({ id, title, price, category, createdAt }) => {
+								const categoryFound = categories.find(
+									({ label }) => label === category
+								);
+								// if category not found in the list, then use a miscellaneous icon for it.
+								const Icon = categoryFound ? categoryFound.Icon : LuPuzzle;
 
-							return (
-								<ListItem key={id}>
-									<ListItemIcon>
-										<Icon />
-									</ListItemIcon>
-									<ListItemText primary={title} secondary={createdAt} />
-									<ListItemText primary={`\u20B9 ${price}`} />
-									<ListItemButton onClick={() => handleDeleteItem(id)}>
+								return (
+									<ListItem key={id}>
 										<ListItemIcon>
-											<LuCircleX />
+											<Icon />
 										</ListItemIcon>
-									</ListItemButton>
-									<ListItemButton onClick={() => handleEditItem(id)}>
-										<ListItemIcon>
-											<LuPencil />
-										</ListItemIcon>
-									</ListItemButton>
-								</ListItem>
-							);
-						})}
-					</List>
-					{/* <div className="pagination">
+										<ListItemText primary={title} secondary={createdAt} />
+										<ListItemText primary={`\u20B9 ${price}`} />
+										<ListItemButton onClick={() => handleDeleteItem(id)}>
+											<ListItemIcon>
+												<LuCircleX />
+											</ListItemIcon>
+										</ListItemButton>
+										<ListItemButton onClick={() => handleEditItem(id)}>
+											<ListItemIcon>
+												<LuPencil />
+											</ListItemIcon>
+										</ListItemButton>
+									</ListItem>
+								);
+							})}
+						</List>
+						{/* <div className="pagination">
 						<LuArrowLeft />
 						<p></p>
 						<LuArrowRight />
 					</div> */}
-					<Container
-						sx={{
-							backgroundColor: "pink",
-							display: "flex",
-							justifyContent: "center",
-						}}
-					>
-						<Pagination count={1} />
-					</Container>
-				</>
-			) : (
-				<></>
-			)}
+						<Container
+							sx={{
+								backgroundColor: "pink",
+								display: "flex",
+								justifyContent: "center",
+							}}
+						>
+							<Pagination count={1} />
+						</Container>
+					</>
+				) : (
+					<></>
+				)}
+			</Box>
 		</>
 	);
 };

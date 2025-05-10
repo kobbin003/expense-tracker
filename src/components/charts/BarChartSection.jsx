@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import { useExpenseContext } from "../../provider/ExpenseProvider";
@@ -15,7 +15,7 @@ const BarChartSection = () => {
 	const data = formatExpensesByCategory(expenses);
 	console.log("formatted-data: ", data);
 	return (
-		<Container>
+		<Box sx={{ backgroundColor: "var(--white)" }}>
 			<BarChart
 				width={250}
 				height={240}
@@ -32,7 +32,7 @@ const BarChartSection = () => {
 				/>
 				<Bar dataKey="totalExpense" fill="#8884d8" />
 			</BarChart>
-		</Container>
+		</Box>
 	);
 };
 

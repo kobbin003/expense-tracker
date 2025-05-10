@@ -1,4 +1,4 @@
-import { Container, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid, Stack } from "@mui/material";
 import "./App.css";
 import AmountDisplayCard from "./components/cards/AmountDisplayCard";
 import ExpenseForm from "./components/forms/ExpenseForm";
@@ -14,57 +14,57 @@ function App() {
 	return (
 		<>
 			<Modal />
-			<header>
-				<h1>Expense Tracker</h1>
-			</header>
+
 			<main>
+				<div
+					style={{ height: "50vh", display: "flex", flexDirection: "column" }}
+				>
+					<h1 style={{ height: "50px" }}>Expense Tracker</h1>
+					<Grid
+						container
+						columns={13}
+						sx={{
+							backgroundColor: "var(--grey-background)",
+							display: "flex",
+							flexGrow: "1",
+							justifyContent: "space-between",
+							alignItems: "center",
+							border: "2px solid red",
+						}}
+					>
+						<Grid size={{ xs: 13, md: 4 }}>
+							<WalletbalanceCard />
+						</Grid>
+						<Grid size={{ xs: 13, md: 4 }}>
+							<ExpensesCard />
+						</Grid>
+						<Grid size={{ xs: 13, md: 4 }} sx={{ border: "2px solid orange" }}>
+							<Box sx={{ flexGrow: "1", minHeight: "200px" }}>
+								<PieChartSection />
+							</Box>
+						</Grid>
+					</Grid>
+				</div>
 				<Grid
 					container
 					// gap={4}
 					columns={13}
-					// width={"full"}
-					height={"40vh"}
+					height={"50vh"}
 					sx={{
-						backgroundColor: "pink",
-						paddingX: { xs: "1em", md: "2em" },
+						// backgroundColor: "blueviolet",
+						// paddingX: { xs: "1em", md: "2em" },
 						display: "flex",
 						justifyContent: "space-between",
 					}}
 				>
-					<Grid size={{ xs: 13, md: 4 }}>
-						<WalletbalanceCard />
-					</Grid>
-					<Grid size={{ xs: 13, md: 4 }} sx={{ backgroundColor: "red" }}>
-						<ExpensesCard />
-					</Grid>
-					<Grid size={{ xs: 13, md: 4 }} sx={{ backgroundColor: "yellow" }}>
-						<PieChartSection />
-					</Grid>
-				</Grid>
-				<Grid
-					container
-					// gap={4}
-					columns={13}
-					height={"40vh"}
-					sx={{
-						backgroundColor: "blueviolet",
-						paddingX: { xs: "1em", md: "2em" },
-						display: "flex",
-						justifyContent: "space-between",
-					}}
-				>
-					<Grid size={{ xs: 13, md: 7.7 }} sx={{ backgroundColor: "green" }}>
+					<Grid size={{ xs: 13, md: 7.7 }}>
 						<RecentTransactionsSection />
 					</Grid>
-					<Grid
-						size={{ xs: 13, md: 5 }}
-						sx={{ backgroundColor: "blanchedalmond" }}
-					>
+					<Grid size={{ xs: 13, md: 5 }}>
 						<h2>Top Expenses</h2>
 						<BarChartSection />
 					</Grid>
 				</Grid>
-				{/* <ExpenseForm /> */}
 			</main>
 		</>
 	);
