@@ -16,7 +16,7 @@ const ExpenseForm = ({ type }) => {
 				title: "",
 				price: "",
 				category: "",
-				createdAt: "",
+				date: "",
 			};
 		} else {
 			// TODO: if type == "edit", initialise the expense with the old data
@@ -30,7 +30,7 @@ const ExpenseForm = ({ type }) => {
 					title: toEditExpense.title,
 					price: toEditExpense.price,
 					category: toEditExpense.category,
-					createdAt: toEditExpense.createdAt,
+					date: toEditExpense.date,
 				};
 			}
 		}
@@ -79,7 +79,7 @@ const ExpenseForm = ({ type }) => {
 							title: expense.title,
 							price: expense.price,
 							category: expense.category,
-							createdAt: expense.createdAt,
+							date: expense.date,
 						};
 					} else {
 						return item;
@@ -95,7 +95,7 @@ const ExpenseForm = ({ type }) => {
 			title: "",
 			price: "",
 			category: "",
-			createdAt: "",
+			date: "",
 		});
 		// close the modal
 		setModalInfo(() => ({
@@ -153,9 +153,9 @@ const ExpenseForm = ({ type }) => {
 				</select>
 				<input
 					type="date"
-					name="createdAt"
-					id="createdAt"
-					value={expense.createdAt}
+					name="date"
+					id="date"
+					value={expense.date}
 					onChange={onChangeHandler}
 					placeholder=""
 					required

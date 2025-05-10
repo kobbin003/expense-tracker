@@ -49,7 +49,7 @@ const RecentTransactionsLists = () => {
 				{expenses.length > 0 ? (
 					<>
 						<List>
-							{expenses.map(({ id, title, price, category, createdAt }) => {
+							{expenses.map(({ id, title, price, category, date }) => {
 								const categoryFound = categories.find(
 									({ label }) => label === category
 								);
@@ -78,7 +78,7 @@ const RecentTransactionsLists = () => {
 														<Icon color="black" />
 													</Avatar>
 												</ListItemAvatar>
-												<ListItemText primary={title} secondary={createdAt} />
+												<ListItemText primary={title} secondary={date} />
 											</Box>
 											<Box
 												sx={{

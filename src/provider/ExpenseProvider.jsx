@@ -12,7 +12,7 @@ export const useExpenseContext = () => useContext(expenseContext);
  *  title:"",
  *  price: 0,
  *  category:"",
- *  createdAt:Date()
+ *  date:Date()
  * }
  */
 
