@@ -65,13 +65,6 @@ const ExpenseForm = ({ type }) => {
 			expense.id = nanoid();
 			setExpenses((prev) => [...prev, expense]);
 
-			// empty the form for the next expense to add
-			setExpense({
-				title: "",
-				price: "",
-				category: "",
-				createdAt: "",
-			});
 			enqueueSnackbar("succesfully added!", { variant: "success" });
 		} else {
 			// edit
@@ -91,12 +84,22 @@ const ExpenseForm = ({ type }) => {
 				});
 			});
 			enqueueSnackbar("succesfully edited!", { variant: "success" });
-			setModalInfo(() => ({
-				isOpen: false,
-				formContentType: "",
-				editItemId: "",
-			}));
 		}
+
+		// resetting the values and states:
+		// empty the form for the next expense to add
+		setExpense({
+			title: "",
+			price: "",
+			category: "",
+			createdAt: "",
+		});
+		// close the modal
+		setModalInfo(() => ({
+			isOpen: false,
+			formContentType: "",
+			editItemId: "",
+		}));
 	};
 
 	const handleCancel = () => {

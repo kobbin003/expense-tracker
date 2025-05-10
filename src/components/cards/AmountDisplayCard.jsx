@@ -10,6 +10,8 @@ const AmountDisplayCard = ({ title, value, btnTitle, clickHandler }) => {
 			variant="outlined"
 			sx={{
 				backgroundColor: "var(--light-grey-background)",
+				paddingY: "1em",
+				borderRadius: "10px",
 			}}
 		>
 			<CardContent
@@ -19,7 +21,7 @@ const AmountDisplayCard = ({ title, value, btnTitle, clickHandler }) => {
 					alignItems: "center",
 				}}
 			>
-				{title}:
+				{title}:&nbsp;
 				<span
 					style={{
 						color: `${
@@ -46,6 +48,7 @@ const AmountDisplayCard = ({ title, value, btnTitle, clickHandler }) => {
 								? "linear-gradient(to right, #B5DC52,#89E148)"
 								: "linear-gradient(to right, #FF9595,#FF4747,#FF3838)"
 						}`,
+						borderRadius: "15px",
 					}}
 				>
 					{btnTitle}

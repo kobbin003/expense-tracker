@@ -29,7 +29,8 @@ function App() {
 							flexGrow: "1",
 							justifyContent: "space-between",
 							alignItems: "center",
-							border: "2px solid red",
+							paddingX: "2em",
+							borderRadius: "10px",
 						}}
 					>
 						<Grid size={{ xs: 13, md: 4 }}>
@@ -38,7 +39,7 @@ function App() {
 						<Grid size={{ xs: 13, md: 4 }}>
 							<ExpensesCard />
 						</Grid>
-						<Grid size={{ xs: 13, md: 4 }} sx={{ border: "2px solid orange" }}>
+						<Grid size={{ xs: 13, md: 4 }}>
 							<Box sx={{ flexGrow: "1", minHeight: "200px" }}>
 								<PieChartSection />
 							</Box>

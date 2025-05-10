@@ -1,11 +1,15 @@
 import React from "react";
 import { useExpenseContext } from "../../provider/ExpenseProvider";
 import {
+	Avatar,
 	Box,
 	Button,
 	Container,
+	Divider,
+	IconButton,
 	List,
 	ListItem,
+	ListItemAvatar,
 	ListItemButton,
 	ListItemIcon,
 	ListItemText,
@@ -33,7 +37,14 @@ const RecentTransactionsLists = () => {
 	};
 	return (
 		<>
-			<Box sx={{ backgroundColor: "var(--white)" }}>
+			<Box
+				sx={{
+					backgroundColor: "var(--white)",
+					paddingX: "0.5em",
+					maxHeight: "50vh",
+					overflowY: "scroll",
+				}}
+			>
 				{expenses.length > 0 ? (
 					<>
 						<List>
@@ -45,53 +56,64 @@ const RecentTransactionsLists = () => {
 								const Icon = categoryFound ? categoryFound.Icon : LuPuzzle;
 
 								return (
-									<ListItem
-										key={id}
-										sx={{
-											display: "flex",
-											// flexDirection: "row",
-											justifyContent: "space-between",
-										}}
-									>
-										<Box
-											sx={{
-												backgroundColor: "orangered",
-												display: "flex",
-												alignItems: "center",
-											}}
-										>
-											<ListItemIcon>
-												<Icon />
-											</ListItemIcon>
-											<ListItemText primary={title} secondary={createdAt} />
-										</Box>
-										<Box
+									<>
+										<ListItem
+											key={id}
 											sx={{
 												display: "flex",
-												backgroundColor: "violet",
-												alignItems: "center",
-												justifyContent: "flex-end",
+												// flexDirection: "row",
+												justifyContent: "space-between",
 											}}
 										>
-											<ListItemText primary={`\u20B9 ${price}`} />
-											<Button
-												sx={{ width: "fit-content" }}
-												onClick={() => handleDeleteItem(id)}
+											<Box
+												sx={{
+													// backgroundColor: "orangered",
+													display: "flex",
+													alignItems: "center",
+												}}
 											>
-												{/* <ListItemIcon> */}
-												<LuCircleX />
-												{/* </ListItemIcon> */}
-											</Button>
-											<ListItemButton
-												sx={{ width: "fit-content" }}
-												onClick={() => handleEditItem(id)}
+												<ListItemAvatar>
+													<Avatar>
+														<Icon color="black" />
+													</Avatar>
+												</ListItemAvatar>
+												<ListItemText primary={title} secondary={createdAt} />
+											</Box>
+											<Box
+												sx={{
+													display: "flex",
+													// backgroundColor: "violet",
+													alignItems: "center",
+													justifyContent: "flex-end",
+													gap: "0.5em",
+												}}
 											>
-												{/* <ListItemIcon> */}
-												<LuPencil />
-												{/* </ListItemIcon> */}
-											</ListItemButton>
-										</Box>
-									</ListItem>
+												<ListItemText
+													primary={`\u20B9 ${price}`}
+													sx={{ color: "#F4BB4A", marginRight: "1em" }}
+												/>
+												<IconButton
+													variant="contained"
+													sx={{ backgroundColor: "#FF3E3E" }}
+													onClick={() => handleDeleteItem(id)}
+												>
+													{/* <ListItemIcon> */}
+													<LuCircleX color="white" />
+													{/* </ListItemIcon> */}
+												</IconButton>
+												<IconButton
+													// sx={{ width: "fit-content" }}
+													sx={{ backgroundColor: "#F4BB4A" }}
+													onClick={() => handleEditItem(id)}
+												>
+													{/* <ListItemIcon> */}
+													<LuPencil color="white" />
+													{/* </ListItemIcon> */}
+												</IconButton>
+											</Box>
+										</ListItem>
+										<Divider variant="fullWidth" component="li" />
+									</>
 								);
 							})}
 						</List>
@@ -105,6 +127,7 @@ const RecentTransactionsLists = () => {
 								// backgroundColor: "pink",
 								display: "flex",
 								justifyContent: "center",
+								paddingY: "0.5em",
 							}}
 						>
 							<Pagination count={1} />
