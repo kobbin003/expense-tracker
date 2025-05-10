@@ -65,7 +65,7 @@ const PieChartSection = () => {
 			<Legend
 				verticalAlign="bottom"
 				iconType="rect"
-				formatter={(value) => <span style={{ color: "black" }}>{value}</span>}
+				formatter={(value) => <span style={{ color: "white" }}>{value}</span>}
 			/>
 		</PieChart>
 		// </ResponsiveContainer>

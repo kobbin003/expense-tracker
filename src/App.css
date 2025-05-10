@@ -11,4 +11,5 @@ main {
 	padding: 0 1em;
 	background-color: var(--dark-background);
 	height: 100vh;
+	gap: 1em;
 }

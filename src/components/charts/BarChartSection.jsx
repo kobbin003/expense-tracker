@@ -15,7 +15,7 @@ const BarChartSection = () => {
 	const data = formatExpensesByCategory(expenses);
 	console.log("formatted-data: ", data);
 	return (
-		<Box sx={{ backgroundColor: "var(--white)" }}>
+		<Box sx={{ backgroundColor: "var(--white)", borderRadius: "10px" }}>
 			<BarChart
 				width={250}
 				height={240}

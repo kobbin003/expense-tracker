@@ -43,6 +43,7 @@ const RecentTransactionsLists = () => {
 					paddingX: "0.5em",
 					maxHeight: "50vh",
 					overflowY: "scroll",
+					borderRadius: "10px",
 				}}
 			>
 				{expenses.length > 0 ? (
@@ -134,7 +135,18 @@ const RecentTransactionsLists = () => {
 						</Container>
 					</>
 				) : (
-					<></>
+					<>
+						<Container
+							sx={{
+								// backgroundColor: "pink",
+								display: "flex",
+								justifyContent: "center",
+								paddingY: "0.5em",
+							}}
+						>
+							<Pagination count={1} />
+						</Container>
+					</>
 				)}
 			</Box>
 		</>

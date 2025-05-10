@@ -1,14 +1,11 @@
-import { Box, Container, Grid, Stack } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import "./App.css";
-import AmountDisplayCard from "./components/cards/AmountDisplayCard";
-import ExpenseForm from "./components/forms/ExpenseForm";
-import RecentTransactionsLists from "./components/RecentTransactionsSection/RecentTransactionsLists";
-import RecentTransactionsSection from "./components/RecentTransactionsSection/RecentTransactionsSection";
-import BarChartSection from "./components/charts/BarChartSection";
-import Modal from "./components/Modal";
-import WalletbalanceCard from "./components/cards/WalletbalanceCard";
 import ExpensesCard from "./components/cards/ExpensesCard";
+import WalletbalanceCard from "./components/cards/WalletbalanceCard";
+import BarChartSection from "./components/charts/BarChartSection";
 import PieChartSection from "./components/charts/PieChartSection";
+import Modal from "./components/Modal";
+import RecentTransactionsLists from "./components/RecentTransactionsSection/RecentTransactionsLists";
 
 function App() {
 	return (
@@ -19,7 +16,7 @@ function App() {
 				<div
 					style={{ height: "50vh", display: "flex", flexDirection: "column" }}
 				>
-					<h1 style={{ height: "50px" }}>Expense Tracker</h1>
+					<h1 style={{ height: "50px", paddingY: "2em" }}>Expense Tracker</h1>
 					<Grid
 						container
 						columns={13}
@@ -59,10 +56,11 @@ function App() {
 					}}
 				>
 					<Grid size={{ xs: 13, md: 7.7 }}>
-						<RecentTransactionsSection />
+						<h2 style={{ paddingBottom: "0.2em" }}>Recent Transactions</h2>
+						<RecentTransactionsLists />
 					</Grid>
 					<Grid size={{ xs: 13, md: 5 }}>
-						<h2>Top Expenses</h2>
+						<h2 style={{ paddingBottom: "0.2em" }}>Top Expenses</h2>
 						<BarChartSection />
 					</Grid>
 				</Grid>

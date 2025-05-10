@@ -55,6 +55,9 @@ const ExpenseForm = ({ type }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		// console.log("expense: ", expense);
+		// return;
+
 		// if the price is more than the balance, disallow add or edit:
 		if (expense.price > balance) {
 			enqueueSnackbar("Insufficient fund", { variant: "error" });
@@ -132,32 +135,22 @@ const ExpenseForm = ({ type }) => {
 					placeholder="Price"
 					required
 				/>
-				{/* <input
-					type="text"
-					name="category"
+				<select
 					id="category"
 					value={expense.category}
+					label="category"
+					name="category"
 					onChange={onChangeHandler}
-					placeholder="Select Category"
+					sx={{ width: "100px" }}
 					required
-				/> */}
-				<FormControl fullWidth>
-					<InputLabel id="category-label">category</InputLabel>
-					<Select
-						labelId="category-label"
-						id="category"
-						value={expense.category}
-						label="category"
-						name="category"
-						onChange={onChangeHandler}
-						autoWidth
-						sx={{ width: "100px" }}
-					>
-						{categories.map(({ label }) => (
-							<MenuItem value={label}>{label}</MenuItem>
-						))}
-					</Select>
-				</FormControl>
+				>
+					<option value="" selected disabled>
+						Select Category
+					</option>
+					{categories.map(({ label }) => (
+						<option value={label}>{label}</option>
+					))}
+				</select>
 				<input
 					type="date"
 					name="createdAt"
