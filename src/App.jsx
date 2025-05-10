@@ -56,11 +56,15 @@ function App() {
 					}}
 				>
 					<Grid size={{ xs: 13, md: 7.7 }}>
-						<h2 style={{ paddingBottom: "0.2em" }}>Recent Transactions</h2>
+						<h2 style={{ paddingBottom: "0.2em" }}>
+							<i>Recent Transactions</i>
+						</h2>
 						<RecentTransactionsLists />
 					</Grid>
 					<Grid size={{ xs: 13, md: 5 }}>
-						<h2 style={{ paddingBottom: "0.2em" }}>Top Expenses</h2>
+						<h2 style={{ paddingBottom: "0.2em" }}>
+							<i>Top Expenses</i>
+						</h2>
 						<BarChartSection />
 					</Grid>
 				</Grid>
