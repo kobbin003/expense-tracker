@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container, Grid, Stack } from "@mui/material";
+import "./App.css";
+import AmountDisplayCard from "./components/cards/AmountDisplayCard";
+import ExpenseForm from "./components/forms/ExpenseForm";
+import RecentTransactionsLists from "./components/RecentTransactionsSection/RecentTransactionsLists";
+import RecentTransactionsSection from "./components/RecentTransactionsSection/RecentTransactionsSection";
+import BarChartSection from "./components/charts/BarChartSection";
+import Modal from "./components/Modal";
+import WalletbalanceCard from "./components/cards/WalletbalanceCard";
+import ExpensesCard from "./components/cards/ExpensesCard";
+import PieChartSection from "./components/charts/PieChartSection";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<Modal />
+			<header>
+				<h1>Expense Tracker</h1>
+			</header>
+			<main>
+				<Grid
+					container
+					// gap={4}
+					columns={13}
+					// width={"full"}
+					height={"40vh"}
+					sx={{
+						backgroundColor: "pink",
+						paddingX: { xs: "1em", md: "2em" },
+						display: "flex",
+						justifyContent: "space-between",
+					}}
+				>
+					<Grid size={{ xs: 13, md: 4 }}>
+						<WalletbalanceCard />
+					</Grid>
+					<Grid size={{ xs: 13, md: 4 }} sx={{ backgroundColor: "red" }}>
+						<ExpensesCard />
+					</Grid>
+					<Grid size={{ xs: 13, md: 4 }} sx={{ backgroundColor: "yellow" }}>
+						<PieChartSection />
+					</Grid>
+				</Grid>
+				<Grid
+					container
+					// gap={4}
+					columns={13}
+					height={"40vh"}
+					sx={{
+						backgroundColor: "blueviolet",
+						paddingX: { xs: "1em", md: "2em" },
+						display: "flex",
+						justifyContent: "space-between",
+					}}
+				>
+					<Grid size={{ xs: 13, md: 7.7 }} sx={{ backgroundColor: "green" }}>
+						<RecentTransactionsSection />
+					</Grid>
+					<Grid
+						size={{ xs: 13, md: 5 }}
+						sx={{ backgroundColor: "blanchedalmond" }}
+					>
+						<h2>Top Expenses</h2>
+						<BarChartSection />
+					</Grid>
+				</Grid>
+				{/* <ExpenseForm /> */}
+			</main>
+		</>
+	);
 }
 
-export default App
+export default App;
