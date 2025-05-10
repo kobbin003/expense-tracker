@@ -53,6 +53,8 @@ const RecentTransactionsLists = () => {
 								const categoryFound = categories.find(
 									({ label }) => label === category
 								);
+
+								const formattedDate = new Date(date);
 								// if category not found in the list, then use a miscellaneous icon for it.
 								const Icon = categoryFound ? categoryFound.Icon : LuPuzzle;
 
@@ -78,7 +80,14 @@ const RecentTransactionsLists = () => {
 														<Icon color="black" />
 													</Avatar>
 												</ListItemAvatar>
-												<ListItemText primary={title} secondary={date} />
+												<ListItemText
+													primary={title}
+													secondary={formattedDate.toLocaleDateString("en-us", {
+														year: "numeric",
+														month: "long",
+														day: "2-digit",
+													})}
+												/>
 											</Box>
 											<Box
 												sx={{
